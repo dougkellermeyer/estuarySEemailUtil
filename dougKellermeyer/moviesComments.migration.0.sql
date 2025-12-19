@@ -3,7 +3,7 @@ CREATE TABLE movies (
   title      TEXT NOT NULL,
   year       INTEGER,
   updated_at TEXT NOT NULL,
-  plot       TEXT NOT NULL,
+  plot       TEXT,
   num_comments    INTEGER
 );
 
