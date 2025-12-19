@@ -36,11 +36,11 @@ collections:
           migrations:
           - moviesComments2.migration.0.sql
       transforms:
-      - name: comments
+      - name: comments2
         source: dougKellermeyer/atlas1/sample_mflix/comments
         shuffle: any
-        lambda: moviesComments2.lambda.comments.sql
-      - name: movies
+        lambda: moviesComments2.lambda.comments2.sql
+      - name: movies2
         source: dougKellermeyer/atlas1/sample_mflix/movies
         shuffle: any
-        lambda: moviesComments2.lambda.movies.sql
+        lambda: moviesComments2.lambda.movies2.sql
