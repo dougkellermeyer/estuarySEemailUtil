@@ -1,4 +1,4 @@
-INSERT INTO movies (movie_id, title, year, plot, num_comments, lastupdated)
+INSERT INTO movies (movie_id, title, year, plot, num_comments, updated_at)
 VALUES (
   $._id,          
   $title,
@@ -12,4 +12,4 @@ ON CONFLICT(movie_id) DO UPDATE SET
   year         = excluded.year,
   plot         = excluded.plot,
   num_comments = excluded.num_comments,
-  lastupdated  = excluded.lastupdated;
+  updated_at  = excluded.updated_at;
