@@ -7,7 +7,7 @@ collections:
           type: object
           properties:
             comment_id:
-              type: [string, "null"]
+              type: string
             movie_id:
               type: string 
             name:
@@ -25,7 +25,8 @@ collections:
             plot:
               type: [string, "null"]
           required:
-            - movie_id           
+            - movie_id 
+            - comment_id          
           reduce:
             strategy: merge
     key:
