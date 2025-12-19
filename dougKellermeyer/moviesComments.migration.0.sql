@@ -14,7 +14,6 @@ CREATE TABLE comments (
   email      TEXT,
   text       TEXT,
   created_at TEXT NOT NULL,
-  FOREIGN KEY (movie_id) REFERENCES movies(movie_id)
 );
 
 CREATE INDEX idx_comments_movie_id ON comments (movie_id);
