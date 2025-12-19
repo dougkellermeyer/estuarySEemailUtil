@@ -1,11 +1,15 @@
 INSERT INTO comments (comment_id, movie_id, name, email, text, created_at)
-VALUES (
-  $_id,         
-  $movie_id,     
-  $name,
-  $email,
-  $text,
-  $date          
+SELECT
+  $_id        AS comment_id,
+  $movie_id   AS movie_id,
+  $name       AS name,
+  $email      AS email,
+  $text       AS text,
+  $date       AS created_at
+WHERE EXISTS (
+  SELECT 1
+  FROM movies m
+  WHERE m.movie_id = $movie_id
 )
 ON CONFLICT(comment_id) DO UPDATE SET
   movie_id   = excluded.movie_id,
