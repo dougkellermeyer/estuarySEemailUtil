@@ -1,6 +1,6 @@
 INSERT INTO movies (movie_id, title, year, plot, num_comments, updated_at)
 VALUES (
-  $._id,          
+  $_id,          
   $title,
   $year,
   $plot,

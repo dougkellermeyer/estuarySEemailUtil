@@ -4,7 +4,7 @@ CREATE TABLE movies (
   year       INTEGER,
   updated_at TEXT NOT NULL,
   plot       TEXT NOT NULL,
-  num_mflix_comments    INTEGER
+  num_comments    INTEGER
 );
 
 CREATE TABLE comments (

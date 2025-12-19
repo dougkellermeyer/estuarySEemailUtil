@@ -1,7 +1,7 @@
 INSERT INTO comments (comment_id, movie_id, name, email, text, created_at)
 VALUES (
-  $._id,         
-  $.movie_id,     
+  $_id,         
+  $movie_id,     
   $name,
   $email,
   $text,
@@ -26,4 +26,4 @@ SELECT
   m.plot
 FROM comments c
 LEFT JOIN movies m ON m.movie_id = c.movie_id
-WHERE c.comment_id = $._id;
+WHERE c.comment_id = $_id;
