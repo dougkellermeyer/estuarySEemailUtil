@@ -1,0 +1,114 @@
+$defs:
+  flow://inferred-schema:
+    $id: flow://inferred-schema
+    additionalProperties: false
+    properties:
+      _id:
+        maxLength: 32
+        minLength: 16
+        type: string
+      _meta:
+        additionalProperties: false
+        properties:
+          op:
+            maxLength: 1
+            type: string
+          snapshot:
+            type: boolean
+          source:
+            additionalProperties: false
+            properties:
+              collection:
+                maxLength: 8
+                minLength: 4
+                type: string
+              db:
+                maxLength: 16
+                minLength: 8
+                type: string
+            required:
+            - collection
+            - db
+            type: object
+          uuid:
+            maxLength: 64
+            minLength: 32
+            type: string
+        required:
+        - op
+        - snapshot
+        - source
+        - uuid
+        type: object
+      location:
+        additionalProperties: false
+        properties:
+          address:
+            additionalProperties: false
+            properties:
+              city:
+                maxLength: 32
+                minLength: 4
+                type: string
+              state:
+                maxLength: 2
+                minLength: 1
+                type: string
+              street1:
+                maxLength: 64
+                minLength: 8
+                type: string
+              street2:
+                maxLength: 32
+                minLength: 2
+                type:
+                - 'null'
+                - string
+              zipcode:
+                maxLength: 16
+                minLength: 4
+                type: string
+            required:
+            - city
+            - state
+            - street1
+            - zipcode
+            type: object
+          geo:
+            additionalProperties: false
+            properties:
+              coordinates:
+                items:
+                  maximum: 100.0
+                  minimum: -1000.0
+                  type: number
+                maxItems: 2
+                minItems: 1
+                type: array
+              type:
+                maxLength: 8
+                minLength: 4
+                type: string
+            required:
+            - coordinates
+            - type
+            type: object
+        required:
+        - address
+        - geo
+        type: object
+      theaterId:
+        maximum: 10000
+        minimum: 1
+        type: integer
+    required:
+    - _id
+    - _meta
+    - location
+    - theaterId
+    type: object
+    x-collection-generation-id: 13568d617c00019a
+    x-complexity-limit: 1000
+allOf:
+- $ref: flow://relaxed-write-schema
+- $ref: flow://inferred-schema

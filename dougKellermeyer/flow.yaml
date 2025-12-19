@@ -1,44 +1,46 @@
+import:
+- atlas1/flow.yaml
+- snowflake-se-test-2/flow.yaml
 collections:
-  dougKellermeyer/moviesComments:
+  dougKellermeyer/moviesComments2:
     schema:
-      type: object
-      properties:
-        comment_id:
-          type: [string, "null"]
-        movie_id:
-          type: string 
-        name:
-          type: [string, "null"]
-        email:
-          type: [string, "null"]
-        text:
-          type: [string, "null"]
-        created_at:
-          type: [string, "null"]
-        title:
-          type: [string, "null"]
-        year:
-          type: [integer, string, "null"]
-        plot:
-          type: [string, "null"]
-      required:
-        - movie_id           
-      reduce:
-        strategy: merge
+          type: object
+          properties:
+            comment_id:
+              type: [string, "null"]
+            movie_id:
+              type: string 
+            name:
+              type: [string, "null"]
+            email:
+              type: [string, "null"]
+            text:
+              type: [string, "null"]
+            created_at:
+              type: [string, "null"]
+            title:
+              type: [string, "null"]
+            year:
+              type: [integer, string, "null"]
+            plot:
+              type: [string, "null"]
+          required:
+            - movie_id           
+          reduce:
+            strategy: merge
     key:
-      - /movie_id            
-
+          - /comment_id           
     derive:
       using:
         sqlite:
           migrations:
-            - moviesComments.migration.0.sql
+          - moviesComments2.migration.0.sql
       transforms:
-        - name: movies
-          source: dougKellermeyer/atlas1/sample_mflix/movies
-          shuffle: any
-          lambda: moviesComments.lambda.movies.sql
-        - name: comments
-          source: dougKellermeyer/atlas1/sample_mflix/comments
-          shuffle: any
-          lambda: moviesComments.lambda.comments.sql
+      - name: comments
+        source: dougKellermeyer/atlas1/sample_mflix/comments
+        shuffle: any
+        lambda: moviesComments2.lambda.comments.sql
+      - name: movies
+        source: dougKellermeyer/atlas1/sample_mflix/movies
+        shuffle: any
+        lambda: moviesComments2.lambda.movies.sql

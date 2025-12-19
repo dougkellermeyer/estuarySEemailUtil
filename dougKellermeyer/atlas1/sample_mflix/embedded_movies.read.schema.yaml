@@ -1,0 +1,280 @@
+$defs:
+  flow://inferred-schema:
+    $id: flow://inferred-schema
+    additionalProperties: false
+    properties:
+      _id:
+        maxLength: 32
+        minLength: 16
+        type: string
+      _meta:
+        additionalProperties: false
+        properties:
+          op:
+            maxLength: 1
+            type: string
+          snapshot:
+            type: boolean
+          source:
+            additionalProperties: false
+            properties:
+              collection:
+                maxLength: 16
+                minLength: 8
+                type: string
+              db:
+                maxLength: 16
+                minLength: 8
+                type: string
+            required:
+            - collection
+            - db
+            type: object
+          uuid:
+            maxLength: 64
+            minLength: 32
+            type: string
+        required:
+        - op
+        - snapshot
+        - source
+        - uuid
+        type: object
+      awards:
+        additionalProperties: false
+        properties:
+          nominations:
+            maximum: 1000
+            minimum: 0
+            type: integer
+          text:
+            maxLength: 128
+            minLength: 4
+            type: string
+          wins:
+            maximum: 1000
+            minimum: 0
+            type: integer
+        required:
+        - nominations
+        - text
+        - wins
+        type: object
+      cast:
+        items:
+          maxLength: 64
+          minLength: 2
+          type: string
+        maxItems: 4
+        type: array
+      countries:
+        items:
+          maxLength: 32
+          minLength: 2
+          type: string
+        maxItems: 8
+        type: array
+      directors:
+        items:
+          maxLength: 32
+          minLength: 2
+          type: string
+        maxItems: 16
+        type: array
+      fullplot:
+        maxLength: 4096
+        minLength: 16
+        type: string
+      genres:
+        items:
+          maxLength: 16
+          minLength: 2
+          type: string
+        maxItems: 4
+        type: array
+      imdb:
+        additionalProperties: false
+        properties:
+          id:
+            maximum: 10000000
+            minimum: 100
+            type: integer
+          rating:
+            maxLength: 0
+            maximum: 10.0
+            minimum: 1.0
+            type:
+            - number
+            - string
+          votes:
+            maxLength: 0
+            maximum: 10000000
+            minimum: 1
+            type:
+            - integer
+            - string
+        required:
+        - id
+        - rating
+        - votes
+        type: object
+      languages:
+        items:
+          maxLength: 32
+          minLength: 2
+          type: string
+        maxItems: 16
+        type: array
+      lastupdated:
+        maxLength: 32
+        minLength: 16
+        type: string
+      metacritic:
+        maximum: 100
+        minimum: 1
+        type: integer
+      num_mflix_comments:
+        maximum: 1000
+        minimum: 0
+        type: integer
+      plot:
+        maxLength: 512
+        minLength: 16
+        type: string
+      plot_embedding:
+        maxLength: 16384
+        minLength: 8192
+        type: string
+      plot_embedding_voyage_3_large:
+        maxLength: 16384
+        minLength: 8192
+        type: string
+      poster:
+        maxLength: 256
+        minLength: 64
+        type: string
+      rated:
+        maxLength: 8
+        type: string
+      released:
+        format: date-time
+        maxLength: 32
+        minLength: 16
+        type: string
+      runtime:
+        maximum: 10000
+        minimum: 1
+        type: integer
+      title:
+        maxLength: 128
+        type: string
+      tomatoes:
+        additionalProperties: false
+        properties:
+          boxOffice:
+            maxLength: 8
+            minLength: 4
+            type: string
+          consensus:
+            maxLength: 512
+            minLength: 16
+            type: string
+          critic:
+            additionalProperties: false
+            properties:
+              meter:
+                maximum: 1000
+                minimum: 0
+                type: integer
+              numReviews:
+                maximum: 1000
+                minimum: 1
+                type: integer
+              rating:
+                maximum: 10.0
+                minimum: 1.0
+                type: number
+            type: object
+          dvd:
+            format: date-time
+            maxLength: 32
+            minLength: 16
+            type: string
+          fresh:
+            maximum: 1000
+            minimum: 0
+            type: integer
+          lastUpdated:
+            format: date-time
+            maxLength: 32
+            minLength: 16
+            type: string
+          production:
+            maxLength: 64
+            type: string
+          rotten:
+            maximum: 1000
+            minimum: 0
+            type: integer
+          viewer:
+            additionalProperties: false
+            properties:
+              meter:
+                maximum: 100
+                minimum: 0
+                type: integer
+              numReviews:
+                maximum: 100000000
+                minimum: 0
+                type: integer
+              rating:
+                maximum: 10.0
+                minimum: 0.0
+                type: number
+            required:
+            - numReviews
+            type: object
+          website:
+            maxLength: 128
+            minLength: 16
+            type: string
+        required:
+        - lastUpdated
+        - viewer
+        type: object
+      type:
+        maxLength: 8
+        minLength: 4
+        type: string
+      writers:
+        items:
+          maxLength: 128
+          minLength: 4
+          type: string
+        maxItems: 32
+        type: array
+      year:
+        maxLength: 16
+        maximum: 10000
+        minLength: 4
+        minimum: 1000
+        type:
+        - integer
+        - string
+    required:
+    - _id
+    - _meta
+    - awards
+    - genres
+    - imdb
+    - lastupdated
+    - num_mflix_comments
+    - title
+    - type
+    - year
+    type: object
+    x-collection-generation-id: 13568d617c00019a
+    x-complexity-limit: 1000
+allOf:
+- $ref: flow://relaxed-write-schema
+- $ref: flow://inferred-schema

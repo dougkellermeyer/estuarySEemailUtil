@@ -13,7 +13,7 @@ CREATE TABLE comments (
   name       TEXT,
   email      TEXT,
   text       TEXT,
-  created_at TEXT NOT NULL,
+  created_at TEXT NOT NULL
 );
 
 CREATE INDEX idx_comments_movie_id ON comments (movie_id);

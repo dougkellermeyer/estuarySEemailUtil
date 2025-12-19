@@ -1,0 +1,31 @@
+collections:
+  dougKellermeyer/atlas1/sample_mflix/comments:
+    writeSchema: comments.write.schema.yaml
+    readSchema: comments.read.schema.yaml
+    key:
+    - /_id
+  dougKellermeyer/atlas1/sample_mflix/embedded_movies:
+    writeSchema: embedded_movies.write.schema.yaml
+    readSchema: embedded_movies.read.schema.yaml
+    key:
+    - /_id
+  dougKellermeyer/atlas1/sample_mflix/movies:
+    writeSchema: movies.write.schema.yaml
+    readSchema: movies.read.schema.yaml
+    key:
+    - /_id
+  dougKellermeyer/atlas1/sample_mflix/sessions:
+    writeSchema: sessions.write.schema.yaml
+    readSchema: sessions.read.schema.yaml
+    key:
+    - /_id
+  dougKellermeyer/atlas1/sample_mflix/theaters:
+    writeSchema: theaters.write.schema.yaml
+    readSchema: theaters.read.schema.yaml
+    key:
+    - /_id
+  dougKellermeyer/atlas1/sample_mflix/users:
+    writeSchema: users.write.schema.yaml
+    readSchema: users.read.schema.yaml
+    key:
+    - /_id

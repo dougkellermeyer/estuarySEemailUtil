@@ -1,0 +1,66 @@
+import:
+- sample_mflix/flow.yaml
+captures:
+  dougKellermeyer/atlas1/source-mongodb:
+    autoDiscover:
+      addNewBindings: true
+      evolveIncompatibleCollections: true
+    endpoint:
+      connector:
+        image: ghcr.io/estuary/source-mongodb:v3
+        config: source-mongodb.config.yaml
+    bindings:
+    - resource:
+        _meta:
+          path:
+          - sample_mflix
+          - comments
+        captureMode: Change Stream Incremental
+        collection: comments
+        database: sample_mflix
+      target: dougKellermeyer/atlas1/sample_mflix/comments
+    - resource:
+        _meta:
+          path:
+          - sample_mflix
+          - embedded_movies
+        captureMode: Change Stream Incremental
+        collection: embedded_movies
+        database: sample_mflix
+      target: dougKellermeyer/atlas1/sample_mflix/embedded_movies
+    - resource:
+        _meta:
+          path:
+          - sample_mflix
+          - movies
+        captureMode: Change Stream Incremental
+        collection: movies
+        database: sample_mflix
+      target: dougKellermeyer/atlas1/sample_mflix/movies
+    - resource:
+        _meta:
+          path:
+          - sample_mflix
+          - sessions
+        captureMode: Change Stream Incremental
+        collection: sessions
+        database: sample_mflix
+      target: dougKellermeyer/atlas1/sample_mflix/sessions
+    - resource:
+        _meta:
+          path:
+          - sample_mflix
+          - theaters
+        captureMode: Change Stream Incremental
+        collection: theaters
+        database: sample_mflix
+      target: dougKellermeyer/atlas1/sample_mflix/theaters
+    - resource:
+        _meta:
+          path:
+          - sample_mflix
+          - users
+        captureMode: Change Stream Incremental
+        collection: users
+        database: sample_mflix
+      target: dougKellermeyer/atlas1/sample_mflix/users

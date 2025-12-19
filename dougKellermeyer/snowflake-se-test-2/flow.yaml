@@ -1,0 +1,23 @@
+materializations:
+  dougKellermeyer/snowflake-se-test-2/materialize-snowflake:
+    source:
+      capture: null
+      targetNaming: withSchema
+      deltaUpdates: false
+      fieldsRecommended: 1
+    endpoint:
+      connector:
+        image: ghcr.io/estuary/materialize-snowflake:v4
+        config: materialize-snowflake.config.yaml
+    bindings:
+    - resource:
+        _meta:
+          path:
+          - dougKellermeyer
+          - moviesComments
+        schema: dougKellermeyer
+        table: moviesComments
+      source: dougKellermeyer/moviesComments
+      fields:
+        recommended: 1
+      backfill: 2

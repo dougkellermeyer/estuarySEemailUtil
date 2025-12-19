@@ -1,0 +1,17 @@
+address: mongodb+srv://dougsetakehome.7v7tpbq.mongodb.net
+password_sops: ENC[AES256_GCM,data:tDWM3NBE6Uw9Bbt97p9xQw==,iv:Fu5fyHp0jN1oHk0UgKtiQ9aAjW2BkKlwyPP91xUxGeE=,tag:wBjI0QwMNQHrMruAyZm+XA==,type:str]
+user: dougkellermeyer_db_user
+sops:
+  kms: null
+  gcp_kms:
+  - resource_id: projects/helpful-kingdom-273219/locations/us-central1/keyRings/catalog-sops/cryptoKeys/config-encryptor
+    created_at: 2025-12-19T04:58:31Z
+    enc: CiUABM8p+2fyBMNkFJ6uxwRa7/rMNE9c9MTDehuJ428NjLE0Zmc0EkkADl2d5MGQfEs1DPx7wgi8s7W1pPrCkdcfqTnD2pOhsAssq8ago1mwHo+nvm16ZMhaTwn9D1PMzQ8d4krqJ9y0KHIkdU7ZRaeP
+  azure_kv: null
+  hc_vault: null
+  age: null
+  lastmodified: 2025-12-19T04:58:31Z
+  mac: ENC[AES256_GCM,data:v946FwO5gqQNDtGfDIYOSQLTHrxbSs5D/b5KeHWQPxRwvCPwYyo+VhgMte/MWeYy+zHZtjAxvU9r6VjvyKWBlc0J6ItLSh72LLEMTt/aK5M1BFEtUYy5mnwxdx2n0AGD9qpxaeBR07RcltXB/QYr87B/R2DTsOlMOplZ43fuhZg=,iv:yFWbU305Hfp8umtgXUpwiYOO6rO/omkYGzWASdwzmYE=,tag:dlCH8hLlyIODfATT3gVigw==,type:str]
+  pgp: null
+  encrypted_suffix: _sops
+  version: 3.7.3
