@@ -1,6 +1,3 @@
--- moviesComments.lambda.comments.sql
--- Runs for each document from dougKellermeyer/atlas1/sample_mflix/comments
-
 INSERT INTO comments (comment_id, movie_id, name, email, text, created_at)
 VALUES (
   $._id,         

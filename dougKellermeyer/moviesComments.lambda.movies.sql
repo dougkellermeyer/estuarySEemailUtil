@@ -1,10 +1,6 @@
--- moviesComments.lambda.movies.sql
--- Runs for each document from dougKellermeyer/atlas1/sample_mflix/movies
-
-
 INSERT INTO movies (movie_id, title, year, plot, num_comments, lastupdated)
 VALUES (
-  $._id,          -- adapt: whatever field Flow exposes for the movie id
+  $._id,          
   $title,
   $year,
   $plot,
