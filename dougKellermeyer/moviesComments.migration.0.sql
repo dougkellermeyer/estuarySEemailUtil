@@ -13,7 +13,7 @@ CREATE TABLE comments (
   name       TEXT,
   email      TEXT,
   text       TEXT,
-  date TEXT NOT NULL,
+  created_at TEXT NOT NULL,
   FOREIGN KEY (movie_id) REFERENCES movies(movie_id)
 );
 
