@@ -1,0 +1,25 @@
+collections:
+  dougKellermeyer/moviesComments:
+    schema:
+      type: object
+      properties:
+        your_key:
+          type: string
+      required:
+      - your_key
+    key:
+    - /your_key
+    derive:
+      using:
+        sqlite:
+          migrations:
+          - moviesComments.migration.0.sql
+      transforms:
+      - name: comments
+        source: dougKellermeyer/atlas1/sample_mflix/comments
+        shuffle: any
+        lambda: moviesComments.lambda.comments.sql
+      - name: movies
+        source: dougKellermeyer/atlas1/sample_mflix/movies
+        shuffle: any
+        lambda: moviesComments.lambda.movies.sql
