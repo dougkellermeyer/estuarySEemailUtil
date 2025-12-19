@@ -3,23 +3,42 @@ collections:
     schema:
       type: object
       properties:
-        your_key:
-          type: string
+        comment_id:
+          type: [string, "null"]
+        movie_id:
+          type: string 
+        name:
+          type: [string, "null"]
+        email:
+          type: [string, "null"]
+        text:
+          type: [string, "null"]
+        created_at:
+          type: [string, "null"]
+        title:
+          type: [string, "null"]
+        year:
+          type: [integer, string, "null"]
+        plot:
+          type: [string, "null"]
       required:
-      - your_key
+        - movie_id           
+      reduce:
+        strategy: merge
     key:
-    - /your_key
+      - /movie_id            
+
     derive:
       using:
         sqlite:
           migrations:
-          - moviesComments.migration.0.sql
+            - moviesComments.migration.0.sql
       transforms:
-      - name: comments
-        source: dougKellermeyer/atlas1/sample_mflix/comments
-        shuffle: any
-        lambda: moviesComments.lambda.comments.sql
-      - name: movies
-        source: dougKellermeyer/atlas1/sample_mflix/movies
-        shuffle: any
-        lambda: moviesComments.lambda.movies.sql
+        - name: movies
+          source: dougKellermeyer/atlas1/sample_mflix/movies
+          shuffle: any
+          lambda: moviesComments.lambda.movies.sql
+        - name: comments
+          source: dougKellermeyer/atlas1/sample_mflix/comments
+          shuffle: any
+          lambda: moviesComments.lambda.comments.sql
